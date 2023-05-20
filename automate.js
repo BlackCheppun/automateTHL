@@ -2,6 +2,12 @@ var pope = document.getElementById("pi");
 var cd = document.getElementById("contentdiv");
 var td = document.getElementById("titlediv");
 
+document.getElementById("s").addEventListener("keydown", ({ key }) => {
+  if (key === "Enter") {
+    verifer();
+  }
+});
+
 document.getElementById("close").addEventListener("click", () => {
   pope.classList.remove("pop-opened");
 });
@@ -14,22 +20,20 @@ function alterclass() {
 }
 
 function verifer() {
-  var x = document.getElementById("s").value;
-  console.log(x);
-  if (x == 0) {
+  var x = document.getElementById("s").value.split("");
+  if (x === "") {
     td.innerHTML = "Succès";
     cd.innerHTML = "Le mot appartient au Langage";
     alterclass();
     return;
   } else {
-    x = x.split("");
     let l = x.length - 1;
     let state = 0;
     for (let i = 0; i <= l; i++) {
       if (x[i] == "a") {
         if (state == 2) {
           td.innerHTML = "Erreur";
-          cd.innerHTML = "Le mot appartient pas au Langage";
+          cd.innerHTML = "Le mot n'appartient pas au Langage";
           alterclass();
           return;
         } else if (state == 0) {
@@ -47,7 +51,7 @@ function verifer() {
         }
       } else {
         td.innerHTML = "Erreur";
-        cd.innerHTML = "Le mot appartient pas au Langage";
+        cd.innerHTML = "Le mot n'appartient pas au Langage";
         alterclass();
         return;
       }
@@ -56,4 +60,5 @@ function verifer() {
     cd.innerHTML = "Le mot appartient au Langage";
     alterclass();
   }
+  document.getElementById("s").value = "";
 }
