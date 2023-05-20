@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Le langage :</h1>
+      <h1>L = { ω ∈ {a,b} , aba ∉ ω }</h1>
+      <form action="">
+        <label for="s">Entrez le mot que vous vouliez vérifier : </label>
+        <input type="text" name="s" id="s" />
+        <button type="button" id="btn" onclick="verifer()">Vérfier</button>
+      </form>
+    </div>
+
+    <div class="pop-closed" id="pi">
+      <div class="inner">
+        <div class="pop-title" id="titlediv">Succèes</div>
+        <div class="content" id="contentdiv">
+          Le mot appartient au Langage L !
+        </div>
+        <div class="close" id="close">OK</div>
+      </div>
+      <div class="backg" id="backg"></div>
+    </div>
+    <script src="automate.js"></script>
+  </body>
+</html>
